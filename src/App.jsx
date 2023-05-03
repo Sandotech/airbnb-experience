@@ -2,15 +2,21 @@ import React from 'react';
 import Navbar from './components/Navbar';
 // import Hero from './components/Hero';
 import Card from './components/Card';
+import * as images from './assets/index';
 
 function App() {
-  const date = new Date();
   return (
     <>
       <Navbar />
       {/* <Hero /> */}
-      <h1>It is currently about {date.getHours()}!</h1>
-      <Card />
+      <Card 
+        img = {`${images.katie}`}
+        rating = '5.0'
+        reviewCount = {6}
+        country = 'USA'
+        title = 'Life lessons with Katie Zaferes'
+        price = {136}
+      />
     </>
   )
 }

@@ -1,22 +1,21 @@
 import React from 'react';
 import Navbar from './components/Navbar';
-// import Hero from './components/Hero';
+import Hero from './components/Hero';
 import Card from './components/Card';
-import * as images from './assets/index';
+import Data from './data';
 
 function App() {
+  const Cards = Data.map(item => 
+      <Card
+        key = {item.id}
+        {...item}
+      />
+    )
   return (
     <>
       <Navbar />
-      {/* <Hero /> */}
-      <Card 
-        img = {`${images.katie}`}
-        rating = '5.0'
-        reviewCount = {6}
-        country = 'USA'
-        title = 'Life lessons with Katie Zaferes'
-        price = {136}
-      />
+      <Hero />
+      <section className='cards-list'>{Cards}</section>
     </>
   )
 }

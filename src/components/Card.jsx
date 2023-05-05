@@ -3,17 +3,21 @@ import '../styles/Card.css';
 import * as images from '../assets/index';
 
 const Card = (props) => {
+    let badgeText;
+    (props.openSpots === 0) ? badgeText = 'SOLD OUT' : badgeText = 'ONLINE';
+    console.log(props); 
     return (
         <div className='card'>
-            <img src={props.img} className='card--image' alt=""/>
+            <div className='card--badge'>{badgeText}</div>
+            <img src={props.coverImg} className='card--image' alt=""/>
             <div className='card--stats'>
                 <img src={images.Star} className='card--star' alt=""/>
-                <span className='card--gray'>{props.rating}</span>
-                <span className='card--gray'>({props.reviewCount}) ~</span>
+                <span className='card--gray'>{props.state.rating}</span>
+                <span className='card--gray'>({props.state.reviewCount}) ~</span>
                 <span className='card--gray'>{props.country}</span>
             </div>
-            <p>{props.title}</p>
-            <p><span className='bold'>From ${props.price}</span> / person</p>
+            <p className='card--title'>{props.title}</p>
+            <p className='card--price'><span className='bold'>From ${props.price}</span> / person</p>
         </div>
     );
 }
